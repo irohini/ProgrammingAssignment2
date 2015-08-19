@@ -1,0 +1,41 @@
+> # Checking Assignment2 cachematrix.R solution in RStudio.
+> 
+> source("cachematrix.R")
+> a <- makeCacheMatrix(matrix(1:4, nrow = 2, ncol = 2))
+> summary(a)
+       Length Class  Mode    
+set    1      -none- function
+get    1      -none- function
+setinv 1      -none- function
+getinv 1      -none- function
+> a$get()
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> a$getinv()
+NULL
+> cacheSolve(a)
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+> cacheSolve(a)
+getting cached data
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+> a$set(matrix(c(0, -1/2, 6, 1), nrow = 2, ncol = 2))
+> a$get()
+     [,1] [,2]
+[1,]  0.0    6
+[2,] -0.5    1
+> a$getinv()
+NULL
+> cacheSolve(a)
+          [,1] [,2]
+[1,] 0.3333333   -2
+[2,] 0.1666667    0
+> cacheSolve(a)
+getting cached data
+          [,1] [,2]
+[1,] 0.3333333   -2
+[2,] 0.1666667    0
